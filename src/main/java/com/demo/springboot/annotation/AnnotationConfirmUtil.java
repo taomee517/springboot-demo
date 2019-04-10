@@ -2,6 +2,7 @@ package com.demo.springboot.annotation;
 
 import com.demo.springboot.annotation.pojo.Person;
 import com.demo.springboot.config.AnnotationConfig;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
@@ -12,26 +13,23 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
  * @date 2019/4/10
  * @time 15:13
  */
+@Slf4j
 public class AnnotationConfirmUtil {
     public static void main(String[] args) {
-        //从xml文件中获取对象
-        getXmlBean();
-        //从配置文件中获取对象
-        getConfigBean();
+        log.info("从xml文件中获取对象：" + getXmlBean());
+        log.info("从配置文件中获取对象: " + getConfigBean());
     }
 
-    public static void getXmlBean() {
+    public static Person getXmlBean() {
         ApplicationContext context = new ClassPathXmlApplicationContext("bean.xml");
         // 根据xml文件中的bean id获取
-        Person person = (Person)context.getBean("person");
-        System.out.println("从xml文件中获取对象：");
-        System.out.println(person);
+        return (Person)context.getBean("person");
     }
 
-    public static void getConfigBean(){
+    public static Person getConfigBean(){
         ApplicationContext context = new AnnotationConfigApplicationContext(AnnotationConfig.class);
-        Person person = (Person) context.getBean("configPerson");
-        System.out.println("从配置文件中获取对象");
-        System.out.println(person);
+        // 可以根据对象名来获取，也可以根据类名来获取
+        // Person person01 = context.getBean(Person.class);
+        return (Person) context.getBean("configPerson");
     }
 }
