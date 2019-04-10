@@ -7,6 +7,9 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
+import java.util.Arrays;
+import java.util.List;
+
 /**
  * @author LuoTao
  * @email taomee517@qq.com
@@ -18,6 +21,10 @@ public class AnnotationConfirmUtil {
     public static void main(String[] args) {
         log.info("从xml文件中获取对象：" + getXmlBean());
         log.info("从配置文件中获取对象: " + getConfigBean());
+        log.info("注意观察加了filter和没加之前的变化");
+        List<String> beans = scanBeanNames();
+        beans.forEach(s -> System.out.println("BEANS scanned from configuration：" + s));
+
     }
 
     public static Person getXmlBean() {
@@ -31,5 +38,10 @@ public class AnnotationConfirmUtil {
         // 可以根据对象名来获取，也可以根据类名来获取
         // Person person01 = context.getBean(Person.class);
         return (Person) context.getBean("configPerson");
+    }
+
+    public static List<String> scanBeanNames(){
+        ApplicationContext context = new AnnotationConfigApplicationContext(AnnotationConfig.class);
+        return Arrays.asList(context.getBeanDefinitionNames());
     }
 }
