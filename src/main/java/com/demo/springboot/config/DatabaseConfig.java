@@ -18,13 +18,13 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class DatabaseConfig {
 
-    @Bean
+    @Bean(value = "windb")
     @Conditional(value = WindowsCondition.class)
     public DatabaseInfo windowsDatabaseInfo(){
        return new DatabaseInfo("127.0.0.1",3306,"123456");
     }
 
-    @Bean
+    @Bean(value = "linuxdb")
     @Conditional(value = LinuxCondition.class)
     public DatabaseInfo linuxDatabaseInfo(){
         return new DatabaseInfo("192.168.6.160",3306,"fastgo123");
