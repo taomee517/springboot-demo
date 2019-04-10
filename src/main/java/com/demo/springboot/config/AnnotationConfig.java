@@ -1,6 +1,7 @@
 package com.demo.springboot.config;
 
 import com.demo.springboot.annotation.pojo.Person;
+import com.demo.springboot.annotation.typefilter.MyTypeFilter;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
@@ -13,9 +14,9 @@ import org.springframework.context.annotation.FilterType;
  * @time 15:23
  */
 @Configuration
-@ComponentScan(value = "com.demo",excludeFilters = {
-        @ComponentScan.Filter(type = FilterType.ANNOTATION,classes = {Configuration.class})
-})
+@ComponentScan(value = "com.demo",excludeFilters =
+//    @ComponentScan.Filter(type = FilterType.CUSTOM,classes = MyTypeFilter.class),useDefaultFilters = false)
+    @ComponentScan.Filter(type = FilterType.ANNOTATION,classes = Configuration.class))
 public class AnnotationConfig {
 
     @Bean(value = "configPerson")
