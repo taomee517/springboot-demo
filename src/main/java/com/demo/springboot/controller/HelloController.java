@@ -1,5 +1,10 @@
 package com.demo.springboot.controller;
 
+import com.demo.springboot.annotation.pojo.DatabaseInfo;
+import com.demo.springboot.config.AnnotationConfig;
+import com.demo.springboot.config.DatabaseConfig;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -17,6 +22,13 @@ public class HelloController {
     @RequestMapping(value = "/hello",method = RequestMethod.GET)
     public String hello(){
         return "Hello,World!";
+    }
+
+    @RequestMapping(value = "/dbInfo",method = RequestMethod.GET)
+    public DatabaseInfo getDatabaseInfo(){
+        ApplicationContext context = new AnnotationConfigApplicationContext(DatabaseConfig.class);
+        DatabaseInfo info = context.getBean(DatabaseInfo.class);
+        return info;
     }
 
 }

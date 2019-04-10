@@ -29,7 +29,7 @@ public class MyTypeFilter implements TypeFilter {
 
         String className = classMetadata.getClassName();
 
-        if(resource.getURL().toString().contains("com/demo")){
+        if(className.contains("Controller")){
             return true;
         }
 
