@@ -9,7 +9,6 @@ import org.springframework.beans.factory.config.BeanPostProcessor;
 import org.springframework.beans.factory.config.ConfigurableBeanFactory;
 import org.springframework.beans.factory.config.InstantiationAwareBeanPostProcessor;
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Scope;
 
 /**
@@ -19,7 +18,6 @@ import org.springframework.context.annotation.Scope;
  * @time 15:24
  * @desc Spring bean的详细生命周期文献：https://www.cnblogs.com/zrtqsk/p/3735273.html
  */
-@Configuration
 public class LifecycleConfig {
 
     /**

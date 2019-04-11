@@ -15,7 +15,7 @@ import org.springframework.context.annotation.*;
  * @time 15:23
  */
 @Slf4j
-//@Configuration
+@Configuration
 @Import(value = {Pet.class, MyImportSelector.class, MyImportBeanDefinitionRegistrar.class})
 @ComponentScan(value = "com.demo",includeFilters =
     @ComponentScan.Filter(type = FilterType.CUSTOM,classes = MyTypeFilter.class),useDefaultFilters = false)

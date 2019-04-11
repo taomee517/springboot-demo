@@ -1,2 +1,6 @@
 server:
   port: 8006
+
+horse:
+  owner: 吕布
+  nickName: 赤兔

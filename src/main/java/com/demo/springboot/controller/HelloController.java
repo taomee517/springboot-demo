@@ -1,8 +1,10 @@
 package com.demo.springboot.controller;
 
 import com.demo.springboot.annotation.pojo.DatabaseInfo;
+import com.demo.springboot.annotation.pojo.Horse;
 import com.demo.springboot.config.AnnotationConfig;
 import com.demo.springboot.config.DatabaseConfig;
+import com.demo.springboot.util.SpringContextUtil;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -30,5 +32,11 @@ public class HelloController {
         DatabaseInfo info = context.getBean(DatabaseInfo.class);
         return info;
     }
+
+    @RequestMapping(value = "/horse",method = RequestMethod.GET)
+    public Horse getHorse(){
+        return SpringContextUtil.getBean(Horse.class);
+    }
+
 
 }
