@@ -19,7 +19,7 @@ import java.util.List;
 @Slf4j
 public class AnnotationConfirmUtil {
     public static void main(String[] args) {
-        log.info("从xml文件中获取对象：" + getXmlBean());
+//        log.info("从xml文件中获取对象：" + getXmlBean());
         log.info("从配置文件中获取对象: " + getConfigBean());
         log.info("注意观察加了filter和没加之前的变化");
         List<String> beans = scanBeanNames();
@@ -36,8 +36,9 @@ public class AnnotationConfirmUtil {
     public static Person getConfigBean(){
         ApplicationContext context = new AnnotationConfigApplicationContext(AnnotationConfig.class);
         // 可以根据对象名来获取，也可以根据类名来获取
-        // Person person01 = context.getBean(Person.class);
-        return (Person) context.getBean("configPerson");
+//        return (Person) context.getBean("configPerson");
+        Person person01 = context.getBean(Person.class);
+        return person01;
     }
 
     public static List<String> scanBeanNames(){

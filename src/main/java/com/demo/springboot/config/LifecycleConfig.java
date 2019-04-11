@@ -1,11 +1,15 @@
 package com.demo.springboot.config;
 
+import com.demo.springboot.annotation.myprocessor.MyBeanFactoryPostProcessor;
+import com.demo.springboot.annotation.myprocessor.MyBeanPostProcessor;
+import com.demo.springboot.annotation.myprocessor.MyInstantiationAwareBeanPostProcessor;
 import com.demo.springboot.annotation.pojo.Monkey;
-import com.demo.springboot.annotation.pojo.Person;
+import org.springframework.beans.factory.config.BeanFactoryPostProcessor;
+import org.springframework.beans.factory.config.BeanPostProcessor;
 import org.springframework.beans.factory.config.ConfigurableBeanFactory;
+import org.springframework.beans.factory.config.InstantiationAwareBeanPostProcessor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Import;
 import org.springframework.context.annotation.Scope;
 
 /**
@@ -13,6 +17,7 @@ import org.springframework.context.annotation.Scope;
  * @email taomee517@qq.com
  * @date 2019/4/11
  * @time 15:24
+ * @desc Spring bean的详细生命周期文献：https://www.cnblogs.com/zrtqsk/p/3735273.html
  */
 @Configuration
 public class LifecycleConfig {
@@ -38,13 +43,30 @@ public class LifecycleConfig {
      *
      */
 
-    @Bean(initMethod = "init",destroyMethod = "destroy")
+    @Bean(initMethod = "init",destroyMethod = "destroy0")
     /**ConfigurableBeanFactory.SCOPE_PROTOTYPE 代表多实例
      * ConfigurableBeanFactory.SCOPE_SINGLETON 代表单例
      */
     @Scope(value = ConfigurableBeanFactory.SCOPE_SINGLETON)
     public Monkey monkey(){
-        return new Monkey();
+        Monkey monkey = new Monkey();
+        monkey.setNickName("miki");
+        return monkey;
+    }
+
+    @Bean
+    public BeanPostProcessor myBeanPostProcessor(){
+        return new MyBeanPostProcessor();
+    }
+
+    @Bean
+    public InstantiationAwareBeanPostProcessor myInstantiationAwareBeanPostProcessor(){
+        return new MyInstantiationAwareBeanPostProcessor();
+    }
+
+    @Bean
+    public BeanFactoryPostProcessor myBeanFactoryPostProcessor(){
+        return new MyBeanFactoryPostProcessor();
     }
 
 }

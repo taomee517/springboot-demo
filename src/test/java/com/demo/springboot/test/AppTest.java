@@ -1,14 +1,12 @@
 package com.demo.springboot.test;
 
 import com.demo.springboot.annotation.pojo.DatabaseInfo;
-import com.demo.springboot.annotation.pojo.Person;
+import com.demo.springboot.annotation.pojo.Monkey;
 import com.demo.springboot.config.LifecycleConfig;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.test.context.junit4.SpringRunner;
 
@@ -38,6 +36,8 @@ public class AppTest {
     public void lifecycleShow(){
         AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(LifecycleConfig.class);
         log.info("容器创建完成！");
-        context.close();
+        Monkey miki = context.getBean(Monkey.class);
+        log.info("从容器中取出一只猴子:" + miki.getNickName());
+        context.registerShutdownHook();
     }
 }
