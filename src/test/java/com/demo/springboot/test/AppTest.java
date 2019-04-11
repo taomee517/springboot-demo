@@ -1,9 +1,6 @@
 package com.demo.springboot.test;
 
-import com.demo.springboot.annotation.pojo.DatabaseInfo;
-import com.demo.springboot.annotation.pojo.Horse;
-import com.demo.springboot.annotation.pojo.Monkey;
-import com.demo.springboot.annotation.pojo.Person;
+import com.demo.springboot.annotation.pojo.*;
 import com.demo.springboot.config.LifecycleConfig;
 import com.demo.springboot.util.SpringContextUtil;
 import lombok.extern.slf4j.Slf4j;
@@ -54,5 +51,8 @@ public class AppTest {
     public void getBean(){
         Horse horse = (Horse) SpringContextUtil.getBean("horse");
         System.out.println(horse);
+
+        MysqlInfo mysql = SpringContextUtil.getBean(MysqlInfo.class);
+        System.out.println(mysql);
     }
 }
