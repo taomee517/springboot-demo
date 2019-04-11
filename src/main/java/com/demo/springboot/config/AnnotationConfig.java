@@ -1,5 +1,6 @@
 package com.demo.springboot.config;
 
+import com.demo.springboot.annotation.myannotations.MyImportBeanDefinitionRegistrar;
 import com.demo.springboot.annotation.myannotations.MyImportSelector;
 import com.demo.springboot.annotation.pojo.Person;
 import com.demo.springboot.annotation.pojo.Pet;
@@ -14,8 +15,8 @@ import org.springframework.context.annotation.*;
  * @time 15:23
  */
 @Slf4j
-@Configuration
-@Import(value = {Pet.class, MyImportSelector.class})
+//@Configuration
+@Import(value = {Pet.class, MyImportSelector.class, MyImportBeanDefinitionRegistrar.class})
 @ComponentScan(value = "com.demo",includeFilters =
     @ComponentScan.Filter(type = FilterType.CUSTOM,classes = MyTypeFilter.class),useDefaultFilters = false)
 //    @ComponentScan.Filter(type = FilterType.ANNOTATION,classes = Configuration.class))

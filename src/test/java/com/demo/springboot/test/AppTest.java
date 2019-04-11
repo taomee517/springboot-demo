@@ -2,10 +2,14 @@ package com.demo.springboot.test;
 
 import com.demo.springboot.annotation.pojo.DatabaseInfo;
 import com.demo.springboot.annotation.pojo.Person;
+import com.demo.springboot.config.LifecycleConfig;
+import lombok.extern.slf4j.Slf4j;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import javax.annotation.Resource;
@@ -19,16 +23,21 @@ import javax.annotation.Resource;
  */
 @RunWith(SpringRunner.class)
 @SpringBootTest
+@Slf4j
 public class AppTest {
-    @Autowired
-    Person person;
 
     @Resource
     DatabaseInfo database;
 
     @Test
-    public void personIoc(){
-        System.out.println(person);
+    public void databaseIoc(){
         System.out.println(database);
+    }
+
+    @Test
+    public void lifecycleShow(){
+        AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(LifecycleConfig.class);
+        log.info("容器创建完成！");
+        context.close();
     }
 }
