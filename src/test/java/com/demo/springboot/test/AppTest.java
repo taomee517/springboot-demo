@@ -3,15 +3,18 @@ package com.demo.springboot.test;
 import com.demo.springboot.annotation.pojo.*;
 import com.demo.springboot.config.LifecycleConfig;
 import com.demo.springboot.util.SpringContextUtil;
+import com.demo.springboot.util.SpringEnvUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import org.springframework.core.env.Environment;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import javax.annotation.Resource;
+import java.util.Arrays;
 
 /**
  * Spring boot测试类
@@ -54,5 +57,7 @@ public class AppTest {
 
         MysqlInfo mysql = SpringContextUtil.getBean(MysqlInfo.class);
         System.out.println(mysql);
+
+        System.out.println("当前的配置环境是：" + SpringEnvUtil.getProfileType());
     }
 }
