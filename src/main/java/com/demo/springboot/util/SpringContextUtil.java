@@ -11,7 +11,13 @@ import org.springframework.context.annotation.Configuration;
  * @date 2019/4/11
  * @time 17:44
  */
+
+
 @Configuration
+/**此处注解不一定非要Configuration,
+ * 只要是能被Spring管理的注解就行，如 @Component
+ * 它可以在Spring启动过程中被实例化，对Static的IOC容器赋值 *
+ */
 public class SpringContextUtil implements ApplicationContextAware {
     private static ApplicationContext context;
 
