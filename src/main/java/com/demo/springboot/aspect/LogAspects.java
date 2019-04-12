@@ -6,7 +6,6 @@ import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.Signature;
 import org.aspectj.lang.annotation.*;
 import org.aspectj.lang.reflect.MethodSignature;
-import org.springframework.stereotype.Component;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 
@@ -21,7 +20,6 @@ import java.lang.reflect.Method;
  */
 @Slf4j
 @Aspect
-@Component
 /**声明当前类是一个Spring切面类*/
 public class LogAspects {
     /**方式一：抽取公共的切入点表达式
@@ -71,7 +69,7 @@ public class LogAspects {
 
     @AfterThrowing(throwing = "ex" ,pointcut = "annotationPointCut()")
     public void logException(JoinPoint joinPoint,Exception ex) {
-        log.error("方法执行发生异常:",ex );
+        log.error(((MethodSignature) joinPoint.getSignature()).getMethod().getName() + "方法执行发生异常:",ex );
     }
 
 

@@ -2,10 +2,6 @@ package com.demo.springboot.common;
 
 import com.demo.springboot.aspect.MyPointCut;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.stereotype.Component;
-
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
 
 /**
  * @author LuoTao
@@ -13,7 +9,6 @@ import javax.servlet.http.HttpSession;
  * @date 2019/4/12
  * @time 9:39
  */
-@Component
 @Slf4j
 public class MathCalculator {
 
@@ -24,13 +19,13 @@ public class MathCalculator {
     }
 
     @MyPointCut(desc = "求乘积方法")
-    public int product(int x, int y){
+    public int multiplied(int x, int y){
         log.info("计算{}，{}的积",x,y);
         return x * y;
     }
 
     @MyPointCut(desc = "求商方法")
-    public int quotient(int x, int y){
+    public int div(int x, int y){
         log.info("计算{}，{}的商",x,y);
         return x / y;
     }
