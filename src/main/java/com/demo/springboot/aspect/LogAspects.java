@@ -4,17 +4,13 @@ import com.demo.springboot.constant.DataTypeEnum;
 import lombok.extern.slf4j.Slf4j;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.Signature;
-import org.aspectj.lang.annotation.After;
-import org.aspectj.lang.annotation.Aspect;
-import org.aspectj.lang.annotation.Before;
-import org.aspectj.lang.annotation.Pointcut;
+import org.aspectj.lang.annotation.*;
 import org.aspectj.lang.reflect.MethodSignature;
 import org.springframework.stereotype.Component;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
 import java.lang.reflect.Method;
 
 /**
@@ -66,6 +62,16 @@ public class LogAspects {
         } catch (Exception e) {
             log.info("切入点后置处理器发生异常：{}" + e);
         }
+    }
+
+    @AfterReturning(returning = "result" ,pointcut = "annotationPointCut()")
+    public void doAfterReturning(JoinPoint joinPoint,Object result){
+        log.info("方法执行完成,后置处理器，返回结果是：" + result);
+    }
+
+    @AfterThrowing(throwing = "ex" ,pointcut = "annotationPointCut()")
+    public void logException(JoinPoint joinPoint,Exception ex) {
+        log.error("方法执行发生异常:",ex );
     }
 
 

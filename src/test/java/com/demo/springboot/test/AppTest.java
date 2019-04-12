@@ -70,5 +70,8 @@ public class AppTest {
     public void aspectTest(){
         int sum = calculator.sum(5,6);
         System.out.println("5 + 6 = " + sum);
+
+        int quotient = calculator.quotient(5,2);
+        System.out.println("5 / 2 = " + quotient);
     }
 }

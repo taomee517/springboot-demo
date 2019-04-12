@@ -28,4 +28,10 @@ public class MathCalculator {
         log.info("计算{}，{}的积",x,y);
         return x * y;
     }
+
+    @MyPointCut(desc = "求商方法")
+    public int quotient(int x, int y){
+        log.info("计算{}，{}的商",x,y);
+        return x / y;
+    }
 }
