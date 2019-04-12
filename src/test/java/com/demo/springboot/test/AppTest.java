@@ -5,6 +5,7 @@ import com.demo.springboot.annotation.pojo.Horse;
 import com.demo.springboot.annotation.pojo.Monkey;
 import com.demo.springboot.annotation.pojo.MysqlInfo;
 import com.demo.springboot.common.MathCalculator;
+import com.demo.springboot.config.AspectJConfig;
 import com.demo.springboot.config.LifecycleConfig;
 import com.demo.springboot.util.SpringContextUtil;
 import com.demo.springboot.util.SpringEnvUtil;
@@ -36,9 +37,6 @@ public class AppTest {
     @Autowired
     Horse horse;
 
-    @Autowired
-    MathCalculator calculator;
-
     @Test
     public void databaseIoc(){
         System.out.println(database);
@@ -68,6 +66,9 @@ public class AppTest {
 
     @Test
     public void aspectTest(){
+        AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(AspectJConfig.class);
+        MathCalculator calculator = context.getBean(MathCalculator.class);
+
         int sum = calculator.sum(5,6);
         System.out.println("5 + 6 = " + sum);
 
