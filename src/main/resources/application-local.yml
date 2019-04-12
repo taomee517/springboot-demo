@@ -53,7 +53,7 @@ swagger:
 
 mybatis:
   localXmlPath: classpath:mybatis/mapper/*.xml
-  typeAliasesPackage: com.fzk.terminal.dao.po
+  typeAliasesPackage: com.demo.springboot.entity.po
     
 # hystrix 线程策略，次可以访问到父线程的上下文
 hystrix:

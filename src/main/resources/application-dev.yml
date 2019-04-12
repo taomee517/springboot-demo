@@ -36,10 +36,6 @@ spring:
     maxActive: 4
     maxWait: 60000
 
-
-server:
-  port: 8084
-
 #security:
 #  basic:
 #    enabled: false
