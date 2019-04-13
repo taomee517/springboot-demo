@@ -2,8 +2,7 @@ package com.demo.springboot.controller;
 
 import com.demo.springboot.annotation.pojo.DatabaseInfo;
 import com.demo.springboot.annotation.pojo.Horse;
-import com.demo.springboot.config.AnnotationConfig;
-import com.demo.springboot.config.DatabaseConfig;
+import com.demo.springboot.config.EnvConfig;
 import com.demo.springboot.util.SpringContextUtil;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
@@ -28,7 +27,7 @@ public class HelloController {
 
     @RequestMapping(value = "/dbInfo",method = RequestMethod.GET)
     public DatabaseInfo getDatabaseInfo(){
-        ApplicationContext context = new AnnotationConfigApplicationContext(DatabaseConfig.class);
+        ApplicationContext context = new AnnotationConfigApplicationContext(EnvConfig.class);
         DatabaseInfo info = context.getBean(DatabaseInfo.class);
         return info;
     }

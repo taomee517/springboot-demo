@@ -25,7 +25,7 @@ spring:
 #        port: 27017
   datasource:
   #数据库地址，测试人员自己配置
-    url: jdbc:mysql://192.168.6.232:3306/db_terminal?Unicode=true&characterEncoding=utf8&allowMultiQueries=true
+    url: jdbc:mysql://192.168.6.232:3306/db_terminal?Unicode=true&characterEncoding=utf8&allowMultiQueries=true&serverTimezone=PRC
     driverClassName: com.mysql.jdbc.Driver
     #用户
     username: root

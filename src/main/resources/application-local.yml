@@ -25,7 +25,7 @@ spring:
 #        host: 192.168.6.160
 #        port: 27017
   datasource:
-    url: jdbc:mysql://127.0.0.1:3306/db_terminal?Unicode=true&characterEncoding=utf8&allowMultiQueries=true&useSSL=false
+    url: jdbc:mysql://127.0.0.1:3306/db_terminal?Unicode=true&characterEncoding=utf8&allowMultiQueries=true&useSSL=false&serverTimezone=PRC
     driverClassName: com.mysql.jdbc.Driver
     username: root
     password: fastgo123

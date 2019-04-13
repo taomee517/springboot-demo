@@ -1,37 +1,32 @@
 package com.demo.springboot.config;
 
-import com.demo.springboot.annotation.pojo.MysqlInfo;
-import org.springframework.beans.factory.annotation.Value;
+import com.demo.springboot.annotation.condition.LinuxCondition;
+import com.demo.springboot.annotation.condition.WindowsCondition;
+import com.demo.springboot.annotation.pojo.DatabaseInfo;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Conditional;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Profile;
 
 /**
  * @author LuoTao
  * @email taomee517@qq.com
- * @date 2019/4/11
- * @time 18:15
+ * @date 2019/4/10
+ * @time 17:02
  */
+@Slf4j
 @Configuration
 public class EnvConfig {
-    @Value("${spring.datasource.url}")
-    private String url;
 
-    @Value("${spring.datasource.username}")
-    private String username;
-
-    @Value("${spring.datasource.password}")
-    private String password;
-
-    @Profile(value = "dev")
-    @Bean(value = "devMysqlInfo")
-    public MysqlInfo mysqlInfo(){
-       return new MysqlInfo(url,username,"dev");
+    @Bean(value = "windb")
+    @Conditional(value = WindowsCondition.class)
+    public DatabaseInfo windowsDatabaseInfo(){
+       return new DatabaseInfo("127.0.0.1",3306,"123456");
     }
 
-    @Profile(value = "local")
-    @Bean(value = "localMysqlInfo")
-    public MysqlInfo lmysqlInfo(){
-        return new MysqlInfo(url,username,"local");
+    @Bean(value = "linuxdb")
+    @Conditional(value = LinuxCondition.class)
+    public DatabaseInfo linuxDatabaseInfo(){
+        return new DatabaseInfo("192.168.6.160",3306,"fastgo123");
     }
 }
