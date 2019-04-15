@@ -1,0 +1,17 @@
+1.指定项目的配置文件
+java -jar springboot-demo-1.0.jar --spring.profiles.active=dev
+
+2.也可以通过虚拟机参数来指令配置文件
+java -jar springboot-demo-1.0.jar -Dspring.profiles.active=dev
+
+3.远程调试：
+    a.项目启动命令指定远程debug端口和JVM参数;
+    b.然后在IDE的项目名下点edit configuration设置远程debug的端口和路径;
+    c.然后再点debug,IDE就绪后就可以远程调试了
+java -Xdebug -Xnoagent -Djava.compiler=NONE -Xrunjdwp:transport=dt_socket,address=8000,suspend=n,server=y -jar springboot-demo-1.0.jar --spring.profiles.active=dev
+
+4.指定项目日志
+nohup java -jar ms-eureka-1.0.jar >eureka.log &
+
+5.maven打包时跳过测试
+mvn package -Dmaven.test.skip=true
