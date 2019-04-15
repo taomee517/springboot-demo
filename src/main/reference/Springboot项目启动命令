@@ -10,8 +10,20 @@ java -jar springboot-demo-1.0.jar -Dspring.profiles.active=dev
     c.然后再点debug,IDE就绪后就可以远程调试了
 java -Xdebug -Xnoagent -Djava.compiler=NONE -Xrunjdwp:transport=dt_socket,address=8000,suspend=n,server=y -jar springboot-demo-1.0.jar --spring.profiles.active=dev
 
-4.指定项目日志
+4.指定项目日志（> xx.log 或 >> xx.log）及后台运行（linux环境下 nohup command &）
 nohup java -jar ms-eureka-1.0.jar >eureka.log &
 
 5.maven打包时跳过测试
 mvn package -Dmaven.test.skip=true
+
+6.配置文件加载位置
+
+  springboot 启动会扫描以下位置的application.properties或者application.yml文件作为Spring boot的默认配置文件
+  优先级由高到底，高优先级的配置会覆盖低优先级的配置；
+  SpringBoot会从这四个位置全部加载主配置文件；互补配置
+
+  –file:./config/
+  –file:./
+  –classpath:/config/
+  –classpath:/
+
