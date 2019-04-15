@@ -15,9 +15,12 @@ import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import org.springframework.data.redis.core.RedisTemplate;
+import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import javax.annotation.Resource;
+import java.util.concurrent.TimeUnit;
 
 /**
  * Spring boot测试类
@@ -36,6 +39,9 @@ public class AppTest {
 
     @Autowired
     Horse horse;
+
+    @Autowired
+    StringRedisTemplate redisTemplate;
 
     @Test
     public void databaseIoc(){
@@ -75,4 +81,11 @@ public class AppTest {
         int quotient = calculator.div(5,2);
         System.out.println("5 / 2 = " + quotient);
     }
+
+
+    @Test
+    public void redisTest() throws Exception{
+        redisTemplate.opsForValue().set("kk","hello2019",30, TimeUnit.SECONDS);
+    }
+
 }

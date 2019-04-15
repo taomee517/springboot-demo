@@ -2,8 +2,11 @@ spring:
   application:
     name: springboot-demo
 
+  banner:
+    location: classpath:banner/banner.txt
+
   profiles:
-    active: dev
+    active: local
 
 server:
   port: 8006

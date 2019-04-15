@@ -16,7 +16,7 @@ spring:
     # 连接池中的最小空闲连接
     pool.min-idle: 0
     # 连接超时时间（毫秒）
-    timeout: 0
+    timeout: 5000
 #  data:
 #    mongodb:
 #      trip:
