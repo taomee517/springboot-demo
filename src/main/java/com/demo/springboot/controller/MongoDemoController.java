@@ -24,7 +24,9 @@ import java.util.List;
 public class MongoDemoController {
 
     @Autowired
-    /**MongoTemplate在MongoDataAutoConfiguration配置中被自动注入*/
+    /**MongoTemplate在MongoDataAutoConfiguration配置中被自动注入
+     * springboot配置文件的属性被封装到MongoProperties类中
+     */
     MongoTemplate mongoTemplate;
 
     @GetMapping(value = "/insert")
