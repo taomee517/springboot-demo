@@ -11,9 +11,15 @@
 
     <!-- 日志存储根路径 -->
     <property name="log.dir.root" value="logs"/>
-    <contextName>"springboot-demo"</contextName>
+    <contextName>springboot-demo</contextName>
 
     <!-- 彩色日志格式 -->
+    <!--%d表示日期时间，-->
+    <!--%thread表示线程名，-->
+    <!--%-5level：级别从左显示5个字符宽度-->
+    <!--%logger{50} 表示logger名字最长50个字符，否则按照句点分割。-->
+    <!--%msg：日志消息，-->
+    <!--%n是换行符-->
     <property name="CONSOLE_LOG_PATTERN"
               value="%date{yyyy-MM-dd HH:mm:ss} | %highlight(%-5level) | %yellow(%thread) | %green(%logger) | %msg%n"/>/>
 
