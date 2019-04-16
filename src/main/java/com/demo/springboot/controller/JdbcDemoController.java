@@ -17,8 +17,8 @@ import java.util.List;
  * @time 10:30
  */
 @RestController
-@RequestMapping(value = "/sql")
-public class FavorateSqlController {
+@RequestMapping(value = "/jdbc")
+public class JdbcDemoController {
     @Autowired
     SqlService sqlService;
 

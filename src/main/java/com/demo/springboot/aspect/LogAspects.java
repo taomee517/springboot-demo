@@ -35,8 +35,11 @@ public class LogAspects {
     }
 
     @Before("expressPointCut()")
-    public void logStart() {
-        log.info("进入控制层...参数列表是：{}");
+    public void logStart(JoinPoint joinPoint) {
+        log.info("进入控制层...");
+        Signature signature = joinPoint.getSignature();
+        MethodSignature methodSignature = (MethodSignature)signature;
+        log.info("请求方法:" + (joinPoint.getTarget().getClass().getName() + "." + signature.getName() + "()"));
     }
 
     @Before("annotationPointCut()")

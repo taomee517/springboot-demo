@@ -17,12 +17,11 @@ spring:
     pool.min-idle: 0
     # 连接超时时间（毫秒）
     timeout: 5000
-#  data:
-#    mongodb:
-#      trip:
-#        database: db_terminal
-#        host: 192.168.6.160
-#        port: 27017
+  data:
+    mongodb:
+      database: db_terminal
+      host: 192.168.6.160
+      port: 27017
   datasource:
   #数据库地址，测试人员自己配置
     url: jdbc:mysql://192.168.6.232:3306/db_terminal?Unicode=true&characterEncoding=utf8&allowMultiQueries=true&serverTimezone=PRC

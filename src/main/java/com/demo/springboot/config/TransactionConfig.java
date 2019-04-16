@@ -37,6 +37,7 @@ public class TransactionConfig {
     private String driver;
 
     @Bean
+    /**DataSourceConfiguration.Generic类已经注入了Datasource对象，此处仅做为演示*/
     public DataSource dataSource(){
         SingleConnectionDataSource dataSource = new SingleConnectionDataSource();
         dataSource.setUrl(url);
@@ -47,6 +48,7 @@ public class TransactionConfig {
     }
 
     @Bean
+    /**JdbcTemplateAutoConfiguration已经注入了JdbcTemplate对象，此处只作为演示*/
     public JdbcTemplate jdbcTemplate(){
         return new JdbcTemplate(dataSource());
     }

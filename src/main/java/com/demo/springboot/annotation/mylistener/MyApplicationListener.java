@@ -16,6 +16,6 @@ import org.springframework.stereotype.Component;
 public class MyApplicationListener  implements ApplicationListener<ApplicationEvent> {
     @Override
     public void onApplicationEvent(ApplicationEvent event) {
-        log.info("接收到一条消息：" + event);
+        log.info("监听到事件：" + event);
     }
 }
