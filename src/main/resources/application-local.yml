@@ -48,8 +48,7 @@ spring:
 swagger:
   enable: true
 
-#日志配置
-
+#Mybatis配置
 mybatis:
   localXmlPath: classpath:mybatis/mapper/*.xml
   typeAliasesPackage: com.demo.springboot.entity.po

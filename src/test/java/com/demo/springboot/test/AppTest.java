@@ -15,7 +15,6 @@ import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
-import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.test.context.junit4.SpringRunner;
 
@@ -86,6 +85,20 @@ public class AppTest {
     @Test
     public void redisTest() throws Exception{
         redisTemplate.opsForValue().set("kk","hello2019",30, TimeUnit.SECONDS);
+    }
+
+    @Test
+    public void logTest(){
+        //日志的级别；
+        //由低到高   trace<debug<info<warn<error
+        //可以调整输出的日志级别；日志就只会在这个级别的更高级别生效
+        log.trace("这是trace日志...");
+        log.debug("这是debug日志...");
+        //SpringBoot默认给我们使用的是info级别的，没有指定级别的就用SpringBoot默认规定的级别；root级别
+        log.info("这是info日志...");
+        log.warn("这是warn日志...");
+        log.error("这是error日志...");
+
     }
 
 }
