@@ -27,7 +27,7 @@ public class SqlDao implements SqlService {
 
     @Autowired
     /**jdbcTemplate在JdbcTemplateAutoConfiguration类中被自动注入
-     * datasource对象DataSourceConfiguration.Generic类中被自动注入
+     * datasource对象DruidDataSourceAutoConfigure类中被自动注入
      * springboot配置文件的属性被封装到DataSourceProperties类中
      */
     JdbcTemplate jdbcTemplate;

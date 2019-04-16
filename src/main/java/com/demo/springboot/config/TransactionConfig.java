@@ -37,7 +37,7 @@ public class TransactionConfig {
     private String driver;
 
     @Bean
-    /**DataSourceConfiguration.Generic类已经注入了Datasource对象，此处仅做为演示*/
+    /**DruidDataSourceAutoConfigure类已经注入了Datasource对象，此处仅做为演示*/
     public DataSource dataSource(){
         SingleConnectionDataSource dataSource = new SingleConnectionDataSource();
         dataSource.setUrl(url);
