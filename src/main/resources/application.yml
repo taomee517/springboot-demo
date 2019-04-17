@@ -6,7 +6,7 @@ spring:
     location: classpath:banner/banner.txt
 
   profiles:
-    active: local
+    active: dev
 
 server:
   port: 8006
@@ -20,6 +20,7 @@ logging:
   level:
     com.demo: debug
 #    root: debug
-  config: classpath:logback.xml
+#  config: classpath:logback.xml
+  config: classpath:log4j.properties
 
 #debug: true

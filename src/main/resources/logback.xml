@@ -10,7 +10,7 @@
     <!--<contextName>${app.name}</contextName>-->
 
     <!-- 日志存储根路径 -->
-    <property name="log.dir.root" value="logs"/>
+    <property name="log.dir.root" value="logs/springboot-demo"/>
     <contextName>springboot-demo</contextName>
 
     <!-- 彩色日志格式 -->
@@ -20,16 +20,29 @@
     <!--%logger{50} 表示logger名字最长50个字符，否则按照句点分割。-->
     <!--%msg：日志消息，-->
     <!--%n是换行符-->
-    <property name="CONSOLE_LOG_PATTERN"
+    <property name="CONSOLE_LOG_PATTERN_DEV"
               value="%date{yyyy-MM-dd HH:mm:ss} | %highlight(%-5level) | %yellow(%thread) | %green(%logger) | %msg%n"/>/>
+
+    <property name="CONSOLE_LOG_PATTERN_OTHER"
+              value="%date{yyyy-MM-dd HH:mm:ss} | %highlight(%-5level) | %green(%thread) | %green(%logger) | %msg%n"/>/>
 
     <!-- 控制台输出日志 -->
     <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
         <!-- encoder 可以指定字符集，对于中文输出有意义 -->
         <encoder charset="utf-8">
-            <pattern>${CONSOLE_LOG_PATTERN}</pattern>
             <charset>utf8</charset>
+        <pattern>${CONSOLE_LOG_PATTERN_DEV}</pattern>
         </encoder>
+
+        <!--springProfile可以指定某段配置只在某个环境下生效,前提是日志配置名称为logback-spring.xml,且在layout内部作用-->
+        <!--<layout class="ch.qos.logback.classic.PatternLayout">-->
+            <!--<springProfile name="dev">                -->
+                <!--<pattern>${CONSOLE_LOG_PATTERN_DEV}</pattern>-->
+            <!--</springProfile>-->
+            <!--<springProfile name="!dev">-->
+                <!--<pattern>${CONSOLE_LOG_PATTERN_OTHER}</pattern>-->
+            <!--</springProfile>-->
+        <!--</layout>-->
     </appender>
     <!-- info 日志 -->
     <appender name="INFO" class="ch.qos.logback.core.rolling.RollingFileAppender">
