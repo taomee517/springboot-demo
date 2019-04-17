@@ -10,7 +10,7 @@
     <!--<contextName>${app.name}</contextName>-->
 
     <!-- 日志存储根路径 -->
-    <property name="log.dir.root" value="logs/springboot-demo"/>
+    <property name="log.dir.root" value="log/logback/springboot-demo"/>
     <contextName>springboot-demo</contextName>
 
     <!-- 彩色日志格式 -->
@@ -56,7 +56,7 @@
 
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
             <!-- 按天回滚 daily -->
-            <fileNamePattern>${log.dir.root}/info/sys-info-%d{yyyy-MM-dd}.log</fileNamePattern>
+            <fileNamePattern>${log.dir.root}/sys-info-%d{yyyy-MM-dd}.log</fileNamePattern>
             <!-- 日志最大的历史 -->
             <maxHistory>2</maxHistory>
         </rollingPolicy>
@@ -72,7 +72,7 @@
         </filter>
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
             <!-- 按天回滚 daily -->
-            <fileNamePattern>${log.dir.root}/error/sys-error-%d{yyyy-MM-dd}.log</fileNamePattern>
+            <fileNamePattern>${log.dir.root}/sys-error-%d{yyyy-MM-dd}.log</fileNamePattern>
             <!-- 日志最大的历史 180天 -->
             <maxHistory>2</maxHistory>
         </rollingPolicy>

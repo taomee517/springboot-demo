@@ -23,6 +23,7 @@
         <druid-version>1.1.9</druid-version>
         <swagger-version>2.6.1</swagger-version>
         <lombok-version>1.16.22</lombok-version>
+        <log4j-version>1.7.25</log4j-version>
     </properties>
     <dependencies>
         <dependency>
@@ -30,28 +31,28 @@
             <!--spring-boot-starter-web内部包含日志依赖-->
             <artifactId>spring-boot-starter-web</artifactId>
             <exclusions>
-                <!--<exclusion>-->
-                    <!--<groupId>ch.qos.logback</groupId>-->
-                    <!--<artifactId>logback-classic</artifactId>-->
-                <!--</exclusion>-->
                 <exclusion>
-                    <groupId>org.springframework.boot</groupId>
-                    <artifactId>spring-boot-starter-logging</artifactId>
+                    <groupId>ch.qos.logback</groupId>
+                    <artifactId>logback-classic</artifactId>
                 </exclusion>
+                <!--<exclusion>-->
+                    <!--<groupId>org.springframework.boot</groupId>-->
+                    <!--<artifactId>spring-boot-starter-logging</artifactId>-->
+                <!--</exclusion>-->
             </exclusions>
         </dependency>
         <!-- slf4j+log4j2 -->
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-log4j2</artifactId>
-        </dependency>
+        <!--<dependency>-->
+            <!--<groupId>org.springframework.boot</groupId>-->
+            <!--<artifactId>spring-boot-starter-log4j2</artifactId>-->
+        <!--</dependency>-->
         <!-- slf4j+log4j -->
         <!--如果要使用log4j作为slf4j的实现，必须先排除spring-logging中的logback实现，并且配置log4j.properties-->
-        <!--<dependency>-->
-            <!--<groupId>org.slf4j</groupId>-->
-            <!--<artifactId>slf4j-log4j12</artifactId>-->
-            <!--<version>1.7.25</version>-->
-        <!--</dependency>-->
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-log4j12</artifactId>
+            <version>${log4j-version}</version>
+        </dependency>
         <!--mongodb-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
