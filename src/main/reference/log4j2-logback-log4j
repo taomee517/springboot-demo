@@ -1,0 +1,2 @@
+log4j log4j2 logback性能比较详实文献：https://zhuanlan.zhihu.com/p/36554554
+总结论：log4j2 优于 logback 优于 log4j
