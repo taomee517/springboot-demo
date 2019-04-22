@@ -1,12 +1,24 @@
 <!DOCTYPE html>
+<!--需要导入themeleaf的名称空间-->
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
 <body>
-    <h1>成功！</h1>
-    <!--th:text 将div里面的文本内容设置为 -->
-    <div th:text="${hello}">这是显示欢迎信息</div>
+    <p style="color: orange">th:text测试</p>
+    <hr>
+    <!--/* th:text 将div里面的文本内容设置为 */-->
+    <div th:text="${text}">text:转义</div>
+    <div th:utext="${text}">utext:不转义</div>
+    <hr>
+
+    <p style="color: green">th:each测试</p>
+    <h4 th:text="${user}" th:each="user:${users}" ></h4>
+    <hr>
+    <h4>
+        <!--/* 双中括号[[]]代表th:text; 外中括号内小括号[()]代表th:utext */-->
+        <span th:each="user:${users}"> [[${user}]] </span>
+    </h4>
 </body>
 </html>
