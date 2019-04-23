@@ -42,18 +42,18 @@ public class HelloController {
         return SpringContextUtil.getBean(Horse.class);
     }
 
-    @RequestMapping(value = "/demo",method = RequestMethod.GET)
+    @RequestMapping(value = "/test",method = RequestMethod.GET)
     public String demo(Map<String,Object> map){
         map.put("text","<h3>ThemeLeaf语法测试之th:text/th:utext</h3>");
         List<String> users = Arrays.asList("Jackson","Lincoln","Bush");
         map.put("users",users);
-        return "demo";
+        return "test";
     }
 
-    @RequestMapping(value = {"/","/index.html"},method = RequestMethod.GET)
-    public String index(){
-        return "login_origin";
-    }
+//    @RequestMapping(value = {"/","/index.html"},method = RequestMethod.GET)
+//    public String index(){
+//        return "login_origin";
+//    }
 
 
 }
