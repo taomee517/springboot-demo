@@ -3,6 +3,8 @@ package com.demo.springboot.config;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurationSupport;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 
 /**
  * WebMvc配置，指定登录页访问路径
@@ -12,12 +14,12 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurationSupp
  * @Date 2019\4\22 0022 22:40
  */
 @Configuration
-public class WebMvcConfig extends WebMvcConfigurationSupport {
+public class WebMvcConfig implements WebMvcConfigurer {
 
     @Override
-    protected void addViewControllers(ViewControllerRegistry registry) {
-        registry.addViewController("/").setViewName("login_temp");
-        registry.addViewController("/index.html").setViewName("login_temp");
+    public void addViewControllers(ViewControllerRegistry registry) {
+        registry.addViewController("/").setViewName("login_origin");
+        registry.addViewController("/index.html").setViewName("login_origin");
     }
 
 }
