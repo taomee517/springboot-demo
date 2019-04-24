@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="thymeleaf model login page based on bootstrap">
+    <meta name="author" content="taomee517@qq.com">
+    <title>login page</title>
+    <!-- Bootstrap core CSS -->
+    <link href="/bootstrap/css/bootstrap.css" th:href="@{/bootstrap/css/bootstrap.min.css}" rel="stylesheet">
+    <!--custom CSS-->
+    <link href="/mine/css/signin.css" th:href="@{/mine/css/signin.css}" rel="stylesheet">
+    <!--&lt;!&ndash; jQuery文件。务必在bootstrap.min.js 之前引入 &ndash;&gt;-->
+    <!--<script src="//cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>-->
+    <!--&lt;!&ndash; 最新的 Bootstrap 核心 JavaScript 文件 &ndash;&gt;-->
+    <!--<script src="//cdn.bootcss.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>-->
+</head>
+<body class="text-center">
+    <form class="form-signin" action="login_submit.html">
+        <img class="mb-4" src="/bootstrap/img/bootstrap-logo.svg" th:src="@{/bootstrap/img/bootstrap-logo.svg}" alt="" width="72" height="72">
+        <h1 class="h3 mb-3 font-weight-normal" th:text="#{login.tip}">Please Sign In</h1>
+        <label class="sr-only col-md-1 control-label" th:text="#{login.username}">Username</label>
+        <div class="form-group has-feedback col-md-10 col-md-offset-1">
+            <input type="text" class="form-control" placeholder="Username" th:placeholder="#{login.username}" required="" autofocus="">
+            <span class="glyphicon glyphicon-user form-control-feedback col-md-push-10 text-muted"></span>
+        </div>
+        <label class="sr-only col-md-1 control-label" th:text="#{login.password}" >Password</label>
+        <div class="form-group has-feedback col-md-10 col-md-offset-1">
+            <input type="text" class="form-control" placeholder="Password" th:placeholder="#{login.password}" required="" autofocus="">
+            <span class="glyphicon glyphicon-lock form-control-feedback col-md-push-10 text-muted"></span>
+        </div>
+        <div class="checkbox mb-3">
+            <label>
+                <input type="checkbox" value="remember-me" />[[#{login.remember}]]
+            </label>
+        </div>
+        <button class="btn btn-lg btn-primary btn-block" type="submit" th:text="#{login.btn}">Sign in</button>
+        <p class="mt-5 mb-3 text-muted">© 2017-2018</p>
+        <a class="btn btn-sm" href="index.html?l=zh_CN">中文</a>
+        <a class="btn btn-sm" href="index.html?l=en_US">English</a>
+    </form>
+</body>
+</html>
