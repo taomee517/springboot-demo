@@ -42,6 +42,7 @@
             /> -->
         <Logger name="org.springframework" level="WARN" />
         <Logger name="com.demo" level="INFO" />
+        <Logger name="org.thymeleaf" level="WARN" />
         <Root level="DEBUG">
             <AppenderRef ref="console"></AppenderRef>
             <AppenderRef ref="error"></AppenderRef>

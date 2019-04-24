@@ -12,6 +12,9 @@ spring:
   profiles:
     active: local
 
+  thymeleaf:
+    cache: false
+
 #  messages:
 #    basename: messages
 #    encoding: UTF-8
