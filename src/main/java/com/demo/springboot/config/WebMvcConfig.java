@@ -1,5 +1,6 @@
 package com.demo.springboot.config;
 
+import com.demo.springboot.aspect.LoginHandlerInterceptor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.util.StringUtils;
@@ -27,6 +28,12 @@ public class WebMvcConfig implements WebMvcConfigurer {
         registry.addViewController("/").setViewName("login_temp");
         registry.addViewController("/index.html").setViewName("login_temp");
         registry.addViewController("/dashboard.html").setViewName("/user/dashboard");
+    }
+
+    @Override
+    public void addInterceptors(InterceptorRegistry registry) {
+        registry.addInterceptor(new LoginHandlerInterceptor()).addPathPatterns("/**")
+                .excludePathPatterns("/index.html","/login_temp.html","/");
     }
 
     @Bean
