@@ -17,7 +17,8 @@ public class LoginHandlerInterceptor implements HandlerInterceptor {
         if(flag){
             log.info("请求被拦截,访问地址:{}",request.getRequestURL());
             request.getSession().setAttribute("msg","您还没有登录,请先登录!");
-            response.sendRedirect("/index.html");
+            // response.sendRedirect("/index.html");
+            request.getRequestDispatcher("/index.html").forward(request,response);
             return !flag;
         }else{
             log.info("放行请求,访问地址:{}",request.getRequestURL());
